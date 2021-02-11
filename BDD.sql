@@ -19,6 +19,11 @@ VALUES
 ('Culinaires', 'https://demarchesadministratives.fr/images/actualites/2730/le-plafond-journalier-des-tickets-restaurant-passe-a-38-jusquau-31-decembre-2020-1.jpg','Dans cette section vous découvrirez les différents spots ou je suis passé et que j ai trouvé sympa tant en terme d ambiance que service proposé ');
 
 
+-- MISE A JOUR BASE DE DONNÉE 
+UPDATE activites
+SET image = 'https://cdn.tohapi.com/media/FR/uploads/themes/182/04.jpg'
+WHERE categorieId = 1;
+
 -- AFFICHER LA TABLE ACTIVITÉ
 SELECT * FROM activites;
 

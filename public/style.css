@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Changa', sans-serif;
+}
+/* HEADER */
+.banner{
+    background-image: url(./images/banner.jpg);
+    background-position: center;
+    height: 40vh;
+}
+
+
+/* BODY */
+
+.card {
+
+    height: 370px;
+    margin: 40px;
+    transition: 0.5s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.card-img-top{
+    height: 200px;
+}
+
+.link-to-category{
+
+    text-decoration: none;
+    color: #262626;
+
+}
+
+.link-to-category:hover{
+
+    color: #262626;
+
+}
+
+/* FOOTER */
+
+footer{
+    background-color: #262626;
+    color: #fff;
+}
+
+.wrapper{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center ;
+    padding: 20px;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 500;
+    width: 30%;
+}
+
+.nav{
+
+    list-style-type: none;
+    text-decoration: none;
+    border-left: 1px #fff solid;
+    width: 40%;
+
+}
+
+.foot-nav-link {
+
+        text-decoration: none;
+        list-style-type: none;
+        color: #fff;
+        
+}
+
+.foot-nav-link li {
+
+    padding-top: 10px; 
+
+}
+
+.network{
+
+    text-decoration: none;
+    width: 30%;
+    
+}
+
+.social-icon{
+
+    color: #fff;
+    list-style-type: none;
+    padding-top: 10px;
+
+}

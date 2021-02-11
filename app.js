@@ -45,9 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*---------------------------------------------------------------*/
 
 // ROUTE
+const homePage = require('./routes/homePageRoute')
+
 
 //CONTROLLER
 
+app.get('/', homePage)
 
 
 

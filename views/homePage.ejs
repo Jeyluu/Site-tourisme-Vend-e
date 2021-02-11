@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs') %>
+
+    <!-- BLOC CATEGORIES -->
+
+    <div class="container mt-5 ">
+        <div class="row">
+
+
+            <% categories.forEach(function(lacategorie) {%>
+                <div class="col-md-4 justify-content-center">
+
+
+                    <div class="card">
+                        <a href="/" class="link-to-category">
+                            <img src="<%=lacategorie.image%>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h4>
+                                    <%=lacategorie.categorie%>
+                                </h4>
+                                <p class="card-text">
+                                    <%=lacategorie.description%>
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+                <%});%>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <%- include('partials/footer.ejs') %>
