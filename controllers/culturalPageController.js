@@ -3,5 +3,7 @@
 
 exports.getCulturalPage = async (req, res) => {
     const listeCategorie = await querysql('SELECT * FROM activites')
-    res.render('culturalPage', {categorie: listeCategorie})
+    const articleCulture = await querysql('SELECT * FROM article')
+    console.log(articleCulture);
+    res.render('culturalPage', {categorie: listeCategorie, listeArticle: articleCulture})
 }

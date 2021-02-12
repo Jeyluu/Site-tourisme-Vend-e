@@ -27,6 +27,7 @@ db.connect(
         console.log('Connecté au serveur MySQL');
     }
 )
+
 //DECLARE LA VARIABLE LOCAL QUERYSQL
 global.querysql = util.promisify(db.query).bind(db)
 
@@ -51,7 +52,7 @@ const culturalPage = require('./routes/culturalPageRoute')
 
 //CONTROLLER
 
-app.get('/', homePage)
+app.use('/', homePage)
 app.get('/activites-culturelles', culturalPage)
 
 

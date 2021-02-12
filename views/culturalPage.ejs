@@ -1,17 +1,17 @@
 <%- include('partials/header') %>
     <div class="col-md-12 mt-5 mb-5 nav-fill nav-cultural">
         <ul class="nav nav-tabs  ">
-
+            
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Activitées Culturelles</a>
+                <a class="nav-link active" aria-current="page" href="#"><%= categorie[0].categorie %></a>
             </li>
             <li class="nav-item small-nav">
-                <a class="nav-link" href="#">Activitées Sportives</a>
+                <a class="nav-link" href="#"><%= categorie[1].categorie %></a>
             </li>
             <li class="nav-item small-nav">
-                <a class="nav-link" href="#">Activitées Culinaires</a>
+                <a class="nav-link" href="#"><%= categorie[2].categorie %></a>
             </li>
-
+            
         </ul>
     </div>
 
@@ -20,26 +20,27 @@
         <div class="row">
 
             <div class="col-md-12 d-flex justify-content-center mt-5 mb-5">
-                <h2>Les articles Populaires</h2>
+                <h2>Les nouveaux articles</h2>
             </div>
 
         </div>
 
         <div class="row">
 
-            <div class="col-md-6">
+            <% listeArticle.forEach(function(unArticle) {%>
+            <div class="col-md-4">
 
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="<%=unArticle.image%>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title"><%=unArticle.nom%></h5>
+                        <p class="card-text"><%=unArticle.description%>.</p>
+                        <a href="#" class="btn btn-link">Voir l'article complet</a>
                     </div>
                 </div>
 
             </div>
+            <%});%>
 
         </div>
 
