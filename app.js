@@ -48,13 +48,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ROUTE
 const homePage = require('./routes/homePageRoute')
 const culturalPage = require('./routes/culturalPageRoute')
-
+const sportlyPage = require('./routes/sportlyPageRoute')
+const culinaryPage = require('./routes/culinaryPageRoute')
 
 //CONTROLLER
 
 app.use('/', homePage)
 app.get('/activites-culturelles', culturalPage)
-
+app.get('/activites-sportives',sportlyPage)
+app.get('/activites-culinaires', culinaryPage)
 
 //LISTEN
 app.listen(port, () => {

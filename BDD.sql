@@ -28,38 +28,48 @@ WHERE categorieId = 1;
 SELECT * FROM activites;
 
 
--- sous TABLE culture
-CREATE TABLE culture (
-	cultureId INT PRIMARY KEY AUTO_INCREMENT,
+--  TABLE auteur
+CREATE TABLE auteur (
+	auteurId INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50)
+);
+
+INSERT INTO auteur (nom)
+VALUES
+('StephQuiBrasse'),
+('SalutMicka'),
+('MaisOuEstVlad');
+
+-- AFFICHER LA TABLE auteur
+
+SELECT * FROM auteur;
+
+--  TABLE article
+CREATE TABLE article (
+	articleId INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(25),
     description VARCHAR(1000),
     image VARCHAR(1000),
-    utilisateursId INT
+    categorieId INT,
+    auteurId INT,
+    FOREIGN KEY (categorieId) REFERENCES activites(categorieId),
+    FOREIGN KEY (auteurId) REFERENCES auteur(auteurId)
 );
+-- AJOUT DE LA COLONNE CONTENU
 
--- AJOUT ARTICLE DANS LA SOUS TABLE CULTURE
-INSERT INTO culture ()
-VALUES 
-( );
+ALTER TABLE article
+ADD contenu VARCHAR(255);
 
+-- AFFICHER LA TABLE article
 
--- sous TABLE Sportives
-CREATE TABLE sportives (
-	sportivesId INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(25),
-    description VARCHAR(1000),
-    image VARCHAR(1000),
-    auteurId INT
-);
+SELECT *
+FROM article
+WHERE categorieId = 1;
 
+-- AJOUT ARTICLE DANS LA TABLE AUTEUR
 
-
--- sous TABLE Culinaire
-CREATE TABLE culinaire (
-	culinaireId INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(25),
-    description VARCHAR(1000),
-    image VARCHAR(1000),
-    auteurId INT
-);
-
+INSERT INTO article(nom,description,image, contenu, auteurId, categorieId)
+VALUES
+('Le parc du Puy Du Fou','Bien plus qu un Parc d attraction traditionnel, le Puy du Fou a été élu meilleur parc d attraction du monde !Venez découvrir l"histoire des guerres de Vendée','https://www.voyages-bellier.com/wp-content/uploads/sites/4473/2020/02/Puy_du_Fou_1.jpg','Le parc du Puy du Fou se situe au Epesse au nord de la Vendée. Il est situé idealement non loin de l"autoroute qui relie Angers de la Roche sur yon.Le Puy du Fou propose une multitude de spectacles et d’aventures, à partager entre amis ou en famille.', 1, 1),
+('La vendée terre de Golf', 'La vendée est un département avec 7 golf ce qui n"est pas négligable. De plus, ils sont chacun doté de magnifique vue que ce soit sur la mer ou dans les terres','https://www.golfsaintjeandemonts.fr/images/fonds/bg_0.jpg','Pour ceux sachant golfer, je vous propose de tenter l"aventure sur l"un des 7 parcours Vendéen. N"hésitez pas à tenter celui de la Roche sur Yon. Jusqu"a peu c"était le golf le plus compliqué de France.',1, 2),
+('Le reef','Vous êtes dans le sud vendée? vous cherchez une bonne adresse ou manger? cet article est fait pour vous', 'https://resofrance.eu/wp-content/uploads/2017/04/LeReef_Les-Sables-dOlonne.jpg?x32734','Ce qui caractérise le Reef: le burger et le fait maison. Superbe adresse pour y manger presque en face de la mer. Le rapport qualité prix y est imbattable. Je vous conseille fortement d"y aller', 1, 3 );
