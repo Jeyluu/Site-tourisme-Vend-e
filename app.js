@@ -58,6 +58,17 @@ app.get('/activites-culturelles', culturalPage)
 app.get('/activites-sportives',sportlyPage)
 app.get('/activites-culinaires', culinaryPage)
 
+
+//ROUTE ADMIN
+const dashboardPage = require('./routes/dashboardPageRoute')
+
+
+
+
+//CONTROLLER ADMIN
+app.get('/tableau-de-bord', dashboardPage)
+
+
 //LISTEN
 app.listen(port, () => {
     console.log(`Vous êtes bien connecté au ${port}, le ${new Date().toLocaleString()}`);
