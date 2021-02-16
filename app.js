@@ -47,26 +47,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTE
 const homePage = require('./routes/homePageRoute')
-const culturalPage = require('./routes/culturalPageRoute')
-const sportlyPage = require('./routes/sportlyPageRoute')
-const culinaryPage = require('./routes/culinaryPageRoute')
-
-//CONTROLLER
-
-app.use('/', homePage)
-app.get('/activites-culturelles', culturalPage)
-app.get('/activites-sportives',sportlyPage)
-app.get('/activites-culinaires', culinaryPage)
-
 
 //ROUTE ADMIN
 const dashboardPage = require('./routes/dashboardPageRoute')
 
-
-
-
 //CONTROLLER ADMIN
-app.get('/tableau-de-bord', dashboardPage)
+app.use('/tableau-de-bord', dashboardPage)
+
+//CONTROLLER
+app.use('/', homePage) // doit toujours être à la fin
+
 
 
 //LISTEN
