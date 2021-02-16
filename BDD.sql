@@ -83,4 +83,10 @@ VALUES
 ('La ferme Villeneuve', 'Un must to go quand on séjourne du côté des Sables d Olonne.','https://axwwgrkdco.cloudimg.io/v7/mtp-cf-images.s3-eu-west-1.amazonaws.com/images/max/6216340c-ffb9-42e2-9727-3a5eef26e0c1.jpg?width=1000','La ferme Villeneuve est un restaurant situé au abord des Sables d Olonne à côté du camping les Pirons. c est un restaurant gastronomique mais avec un bon rapport qualité prix.',2,3),
 ('Les Reflets', 'Le restaurant référence de Vendée, il y fait bon y manger mais gare à vous si vcous n anticipez la réservation.','https://media-cdn.tripadvisor.com/media/photo-s/12/ca/50/a4/les-reflets.jpg','Le restaurant est situé à la Roche sur Yon sur la route des Sables d Olonne. Si vous voulez bien manger c est ici qu il faut aller. La nourriture y est merveilleusement bonne et aucun ingredients n est en trop. Je recommande vivement',2,3),
 ('Le Fatra ', 'Restaurant avec une cuisine très rafinées pour un prix raisonnable. On y noterera que la vue y est fortement agréable car donne sur le port','https://mobile-img.lpcdn.ca/lpca/924x/5191fdab/8a702351-f2d8-11ea-b8ad-02fe89184577.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',2,3),
-('Le Fat Burger ', 'Restaurant à burger spécialisé dans le burger, on y retrouver toutes sortes de burger très travaillés ','https://blog.equiphotel.com/wp-content/uploads/2018/12/shutterstock_550966804.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',3,3)
+('Le Fat Burger ', 'Restaurant à burger spécialisé dans le burger, on y retrouver toutes sortes de burger très travaillés ','https://blog.equiphotel.com/wp-content/uploads/2018/12/shutterstock_550966804.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',3,3);
+
+
+-- FAIRE UNE JOINTURE ENTRE DEUX TABLES
+SELECT *
+FROM auteur
+INNER JOIN article ON auteur.auteurId = articles.articleId
