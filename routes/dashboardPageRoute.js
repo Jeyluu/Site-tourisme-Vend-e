@@ -12,6 +12,6 @@ router.get('/liste-des-articles',articleAdminController.getArticleListPage)
 router.get('/liste-des-articles/ajouter', articleAdminController.getAddArticlePage)
 
 //AJOUTER UN ARTICLE
-router.get('/liste-des-articles/ajouter', articleAdminController.postArticlePage)
+router.post('/liste-des-articles/ajouter', articleAdminController.postArticlePage)
 
 module.exports = router

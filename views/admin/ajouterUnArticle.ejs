@@ -11,16 +11,16 @@
 
             <!-- FORMULAIRE D'AJOUT D'ARTICLE -->
 
-            <form action="tableau-de-bord/liste-des-articles/ajouter" method="POST">
+            <form action="/tableau-de-bord/liste-des-articles/ajouter" method="POST">
                 <!-- TITRE -->
                 <div class="mb-3 mt-3">
                     <labelclass="form-label">Titre de l'article</label>
-                    <input  class="form-control" name="titre-article">
+                    <input  class="form-control" name="titre">
                 </div>
 
                 <!-- CATEGORIE -->
                 <div class="mb-3">
-                    <select name="categorie-article">
+                    <select name="categorieId">
                         <option>Catégorie de l'article</option>
                         <% categorie.forEach(function(categorie) {%>
                         <option value="<%=categorie.categorieId%>"><%=categorie.categorie%></option>
@@ -31,18 +31,18 @@
                 <!-- DESCRIPTION -->
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Résumé de l'article</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description-article"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"></textarea>
                 </div>
 
                 <!-- CONTENU -->
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Contenu de l'article</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="description-article"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="contenu"></textarea>
                 </div>
 
                 <!-- AUTEUR -->
                 <div class="mb-3">
-                    <select name="auteur-article">
+                    <select name="auteurId">
                         <option>Choisir l'auteur</option>
                         <% auteurs.forEach(function(auteur) {%>
                         <option value="<%=auteur.auteurId%>"><%=auteur.nom%></option>

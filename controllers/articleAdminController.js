@@ -14,5 +14,24 @@ exports.getAddArticlePage = async (req, res) => {
 
 //AJOUTER UN ARTICLE
 exports.postArticlePage = async (req, res) => {
+    const imageURL = "https://www.kyoceradocumentsolutions.be/blog/wp-content/uploads/2019/03/iStock-881331810.jpg"
+    const {titre,categorieId, description, contenu, auteurId} = req.body
 
+    //GESTION D'EXCEPTION
+    try{
+        await querysql(
+            "INSERT INTO article (titre,categorieId, description,contenu, auteurId, image) VALUES ('" + titre + "','" + categorieId + "','" + description + "','" + contenu + "','" + auteurId + "','" + imageURL + "');",
+
+        (err,result) => {
+            if(err) {
+                res.send(err)
+            } else {
+                return res.redirect('/tableau-de-bord/liste-des-articles')
+            }
+        }
+        )
+
+    } catch(err) {
+        res.status(400).json({message:err})
+    }
 }
