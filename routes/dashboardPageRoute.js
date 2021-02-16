@@ -6,6 +6,12 @@ const articleAdminController = require('../controllers/articleAdminController')
 router.get('/',dashboardPageController.getDashboardPage)
 
 //AFFICHAGE LISTE DES ARTICLES
-router.get('/listeDesArticles',articleAdminController.getArticleListPage)
+router.get('/liste-des-articles',articleAdminController.getArticleListPage)
+
+//AFFICHER UN FORMULAIRE D'ARTICLE
+router.get('/liste-des-articles/ajouter', articleAdminController.getAddArticlePage)
+
+//AJOUTER UN ARTICLE
+router.get('/liste-des-articles/ajouter', articleAdminController.postArticlePage)
 
 module.exports = router

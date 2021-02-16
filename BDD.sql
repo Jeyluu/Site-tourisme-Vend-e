@@ -60,6 +60,10 @@ CREATE TABLE article (
 ALTER TABLE article
 ADD contenu VARCHAR(255);
 
+-- MODIFCATION NOM DE COLONNE
+ALTER TABLE article
+CHANGE nom titre VARCHAR(25);
+
 -- AFFICHER LA TABLE article
 
 SELECT *
@@ -87,6 +91,10 @@ VALUES
 
 
 -- FAIRE UNE JOINTURE ENTRE DEUX TABLES
-SELECT *
-FROM auteur
-INNER JOIN article ON auteur.auteurId = articles.articleId
+SELECT article.titre, article.image, auteur.nom FROM auteur
+INNER JOIN article ON auteur.auteurId = article.auteurId;
+
+-- COMPTE LE NOMBRE D'ARTICLES AU TOTAL
+SELECT COUNT(*) AS total FROM article;
+-- PERMET DE SORTIR LES ARTICLES EN RAPPORT AVEC LE MOT
+SELECT titre FROM article WHERE titre LIKE '%Golf%';

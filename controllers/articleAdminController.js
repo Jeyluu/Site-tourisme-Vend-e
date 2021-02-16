@@ -4,3 +4,13 @@ exports.getArticleListPage = async (req, res) => {
     const articlesAdmin = await querysql('SELECT article.titre, article.image, auteur.nom FROM auteur INNER JOIN article ON auteur.auteurId = article.auteurId')
     res.render('admin/listeDesArticles', {ListeDesArticles: articlesAdmin, CompteDesArticles: articleTotal[0].total })
 }
+
+//AFFICHER UN FORMULAIRE D'ARTICLE
+exports.getAddArticlePage = async (req, res) => {
+    res.render('admin/ajouterUnArticle')
+}
+
+//AJOUTER UN ARTICLE
+exports.postArticlePage = async (req, res) => {
+
+}

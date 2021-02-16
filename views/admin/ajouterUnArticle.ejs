@@ -1,0 +1,54 @@
+<%- include('partials-admin/header-admin.ejs') %>
+    <%- include('partials-admin/sidebar-admin.ejs') %>
+        <div class="container-fluid">
+
+            
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800"> Bienvenue sur le tableau de bord d'administration</h1>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"></i>Ajouter un article</a>
+            </div>
+            <h1>Ajouter un article</h1>
+
+            <!-- FORMULAIRE D'AJOUT D'ARTICLE -->
+
+            <form action="tableau-de-bord/liste-des-articles/ajouter" method="POST">
+                <!-- TITRE -->
+                <div class="mb-3 mt-3">
+                    <labelclass="form-label">Titre de l'article</label>
+                    <input  class="form-control" name="titre-article">
+                </div>
+
+                <!-- CATEGORIE -->
+                <div class="mb-3">
+                    <select name="categorie-article">
+                        <option>Catégorie de l'article</option>
+                        <option value="1">Culturel</option>
+                        <option value="2">Sport</option>
+                        <option value="3">Culinaire</option>
+                    </select>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Titre de l'article</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"name="description-article"></textarea>
+                </div>
+
+                <!-- AUTEUR -->
+                <div class="mb-3">
+                    <select name="auteur-article">
+                        <option >Choisir l'auteur</option>
+                        <option value="1">StephquiBrasse</option>
+                        <option value="2">SalutMicka</option>
+                        <option value="3">MaisouestVlad</option>
+                    </select>
+                </div>
+
+                
+                <button type="submit" class="btn btn-primary">Publier</button>
+            </form>
+
+        </div>
+
+
+        <%- include('partials-admin/footer-admin.ejs') %>
