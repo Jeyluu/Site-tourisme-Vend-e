@@ -7,7 +7,9 @@ exports.getArticleListPage = async (req, res) => {
 
 //AFFICHER UN FORMULAIRE D'ARTICLE
 exports.getAddArticlePage = async (req, res) => {
-    res.render('admin/ajouterUnArticle')
+    const listeDesCategories = await querysql ('SELECT * FROM activites')
+    const listeDesAuteurs = await querysql ('SELECT * FROM auteur')
+    res.render('admin/ajouterUnArticle', {auteurs:listeDesAuteurs, categorie: listeDesCategories})
 }
 
 //AJOUTER UN ARTICLE
