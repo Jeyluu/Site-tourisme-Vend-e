@@ -3,13 +3,19 @@ const path = require('path');
 const app = express();
 const mysql = require('mysql');
 const util = require('util')
+const methodOverride = require('method-override');
 const port = 7000;
 
 // DotEnv
 require('dotenv').config()
 
+// override
+app.use(methodOverride('_method'))
 
 //MYSQL
+
+
+
 const db = mysql.createConnection(
     {
 
@@ -20,6 +26,7 @@ const db = mysql.createConnection(
 
     }
 )
+
 
 db.connect(
     (err) => {

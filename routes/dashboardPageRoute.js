@@ -14,4 +14,10 @@ router.get('/liste-des-articles/ajouter', articleAdminController.getAddArticlePa
 //AJOUTER UN ARTICLE
 router.post('/liste-des-articles/ajouter', articleAdminController.postArticlePage)
 
+//AFFICHER AVANT EDITION D'UN ARTICLE
+router.get('/liste-des-articles/edit/:id', articleAdminController.getEditArticlePage)
+
+//EDITION D'UN ARTICLE
+router.put('/liste-des-articles/edit/:id', articleAdminController.EditArticlePage)
+
 module.exports = router

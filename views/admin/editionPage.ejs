@@ -1,0 +1,59 @@
+<%- include('partials-admin/header-admin.ejs') %>
+    <%- include('partials-admin/sidebar-admin.ejs') %>
+        <div class="container-fluid">
+
+            
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800"> Bienvenue sur le tableau de bord d'administration</h1>
+            </div>
+            <h1>Editer un article</h1>
+
+            <!-- FORMULAIRE D'AJOUT D'ARTICLE -->
+
+            <form action="/tableau-de-bord/liste-des-articles/edit/<%=article.articleId%>?_method=PUT" method="POST">
+                <!-- TITRE -->
+                <div class="mb-3 mt-3">
+                    <labelclass="form-label">Titre de l'article</label>
+                    <input  class="form-control" name="titre" value="<%=modification[0].titre%>">
+                </div>
+
+                <!-- CATEGORIE -->
+                <div class="mb-3">
+                    <select name="categorieId">
+                        <option value="<%=categorie.categorieId%>" selected>Catégorie de l'article</option>
+                        <% categorie.forEach(function(categorie) {%>
+                        <option value="<%=categorie.categorieId%>"><%=categorie.categorie%></option>
+                        <%});%>
+                    </select>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Résumé de l'article</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"><%=modification[0].description%></textarea>
+                </div>
+
+                <!-- CONTENU -->
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Contenu de l'article</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="contenu"><%=modification[0].contenu%></textarea>
+                </div>
+
+                <!-- AUTEUR -->
+                <div class="mb-3">
+                    <select name="auteurId">
+                        <option value="<%=auteurs.auteurId%>" selected>Choisir l'auteur</option>
+                        <% auteurs.forEach(function(auteur) {%>
+                        <option value="<%=auteur.auteurId%>"><%=auteur.nom%></option>
+                        <%});%>
+                    </select>
+                </div>
+
+                
+                <button type="submit" class="btn btn-primary">Confirmer la modification</button>
+            </form>
+
+        </div>
+
+
+        <%- include('partials-admin/footer-admin.ejs') %>
