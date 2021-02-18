@@ -10,11 +10,11 @@
 
             <!-- FORMULAIRE D'AJOUT D'ARTICLE -->
 
-            <form action="/tableau-de-bord/liste-des-articles/edit/<%=article.articleId%>?_method=PUT" method="POST">
+            <form action="/tableau-de-bord/liste-des-articles/edit/<%=modification.articleId%>?_method=PUT" method="POST">
                 <!-- TITRE -->
                 <div class="mb-3 mt-3">
                     <labelclass="form-label">Titre de l'article</label>
-                    <input  class="form-control" name="titre" value="<%=modification[0].titre%>">
+                    <input  class="form-control" name="titre" value="<%=modification.titre%>">
                 </div>
 
                 <!-- CATEGORIE -->
@@ -30,13 +30,13 @@
                 <!-- DESCRIPTION -->
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Résumé de l'article</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"><%=modification[0].description%></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description"><%=modification.description%></textarea>
                 </div>
 
                 <!-- CONTENU -->
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Contenu de l'article</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="contenu"><%=modification[0].contenu%></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="contenu"><%=modification.contenu%></textarea>
                 </div>
 
                 <!-- AUTEUR -->

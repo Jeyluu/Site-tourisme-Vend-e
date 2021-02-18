@@ -1,7 +1,8 @@
 
 exports.getArticleListPage = async (req, res) => {
     const articleTotal = await querysql('SELECT COUNT(*) AS total FROM article')
-    const articlesAdmin = await querysql('SELECT article.titre, article.image,article.articleId, auteur.nom FROM auteur INNER JOIN article ON auteur.auteurId = article.auteurId')
+    const articlesAdmin = await querysql('SELECT article.titre, article.image,article.articleId, auteur.nom FROM auteur INNER JOIN article ON auteur.auteurId = article.auteurId ORDER BY titre')
+    
     res.render('admin/listeDesArticles', {ListeDesArticles: articlesAdmin, CompteDesArticles: articleTotal[0].total })
 }
 
@@ -42,19 +43,18 @@ exports.getEditArticlePage = async (req,res) => {
     const listeDesCategories = await querysql ('SELECT * FROM activites')
     const listeDesAuteurs = await querysql ('SELECT * FROM auteur')
     const articleSingle = await querysql("SELECT * FROM article WHERE articleId = '"+ req.params.id +"';")
-    console.log("ceci nous renvoi quoi? : ", articleSingle[0].titre);
-    res.render('admin/editionPage', {modification: articleSingle, auteurs: listeDesAuteurs, categorie: listeDesCategories})
+    
+    res.render('admin/editionPage', {modification: articleSingle[0], auteurs: listeDesAuteurs, categorie: listeDesCategories})
 }
 
 exports.EditArticlePage = async (req, res) => {
-    const imageURL = "https://resofrance.eu/wp-content/uploads/2017/04/LeReef_Les-Sables-dOlonne.jpg?x32734"
+    const imageURL = "https://blog.equiphotel.com/wp-content/uploads/2018/12/shutterstock_550966804.jpg"
     const {titre,categorieId, description, contenu, auteurId} = req.body
-    const id = req.params.id
-    console.log('id:',id);
+    
     //GESTION D'EXCEPTION
     try{
         await querysql(
-            "UPDATE article SET titre = '"+ titre +"',categorieId = '"+ categorieId +"', description = '"+ description +"',contenu = '"+ contenu +"', auteurId = '"+ auteurId +"', image = '"+ imageURL +"' WHERE articleId ='"+req.params.id+"';",
+            "UPDATE article SET titre = '"+ titre +"',categorieId = '"+ categorieId +"', description = '"+ description +"',contenu = '"+ contenu +"', auteurId = '"+ auteurId +"', image = '"+ imageURL +"' WHERE articleId ='"+ req.params.id+"';",
 
         (err,result) => {
             if(err) {
