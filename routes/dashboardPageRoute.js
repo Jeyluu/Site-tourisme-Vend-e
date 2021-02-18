@@ -20,4 +20,7 @@ router.get('/liste-des-articles/edit/:id', articleAdminController.getEditArticle
 //EDITION D'UN ARTICLE
 router.put('/liste-des-articles/edit/:id', articleAdminController.EditArticlePage)
 
+//SUPPRESSION D'UN ARTICLE
+router.delete('/liste-des-articles/:id', articleAdminController.deleteArticle)
+
 module.exports = router

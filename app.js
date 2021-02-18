@@ -51,9 +51,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 /*---------------------------------------------------------------*/
-
 // ROUTE
 const homePage = require('./routes/homePageRoute')
+const connexionPage = require('./routes/connexionPageRoute')
 
 //ROUTE ADMIN
 const dashboardPage = require('./routes/dashboardPageRoute')
@@ -62,6 +62,7 @@ const dashboardPage = require('./routes/dashboardPageRoute')
 app.use('/tableau-de-bord', dashboardPage)
 
 //CONTROLLER
+app.use('/', connexionPage)
 app.use('/', homePage) // doit toujours être à la fin
 
 

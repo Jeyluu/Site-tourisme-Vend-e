@@ -29,7 +29,12 @@
                         <td class="img thumbnail" style="text-align: center;"><img style="width:150px" src="<%=lacategorie.image%>" alt=""></td>
                         <td style="text-align: center;"><%=lacategorie.nom%></td>
                         <td style="text-align: center;"><a href="liste-des-articles/edit/<%=lacategorie.articleId%>"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i> Modifier</button></a></td>
-                        <td style="text-align: center;"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</button></td>
+                        
+                        <!-- formulaire de suppression d'article -->
+                        <form action="/tableau-de-bord/liste-des-articles/<%=lacategorie.articleId%>?_method=DELETE" method="POST">
+                            <td style="text-align: center;"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</button></td>
+                        </form>
+                        
                     </tr>
                     <%});%>
                 </tbody>
