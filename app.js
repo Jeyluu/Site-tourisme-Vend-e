@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const util = require('util')
 const methodOverride = require('method-override');
 const session = require('express-session');
+const flash = require('connect-flash')
 const port = 7000;
 
 // DotEnv
@@ -41,11 +42,18 @@ db.connect(
 //express-session
 
 app.use(session({
-    secret: 'keyboard cat',
+    name: 'salutMicka',
+    secret: 'secret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
-  }))
+    cookie: {
+        maxage: 1000 * 60 * 60 * 24 // le cookie du 24heures
+    }
+}))
+
+//ACTIVER LES MESSAGES FLASH
+app.use(flash())
+
 
 //DECLARE LA VARIABLE LOCAL QUERYSQL
 global.querysql = util.promisify(db.query).bind(db)
@@ -53,7 +61,7 @@ global.querysql = util.promisify(db.query).bind(db)
 
 // Middleware - BodyParser
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 // EJS
 app.set('view engine', 'ejs');

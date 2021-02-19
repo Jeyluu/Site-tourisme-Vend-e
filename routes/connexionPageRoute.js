@@ -3,8 +3,11 @@ const connexionController = require('../controllers/connexionController')
 
 
 //------------------- login ---------------------
+//GET
 router.get('/connexion',connexionController.getConnexionPage)
 
+//POST
+router.post('/connexion',connexionController.postConnexion)
 //------------------- Inscription ---------------------
 //GET
 router.get('/inscription', connexionController.getInscriptionPage)

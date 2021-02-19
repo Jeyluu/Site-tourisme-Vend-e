@@ -3,20 +3,26 @@
     <form action="/inscription" method="POST">
         <div class="row">
             <div class="col-md-4">
-                <label for="exampleInputEmail1" class="form-label">Nom </label>
+                <label class="form-label">Nom </label>
             <input type="text" class="form-control"  name="nom">
             </div>
             <div class="col-md-4">
-                <label for="exampleInputEmail1" class="form-label">Prénom</label>
+                <label  class="form-label">Prénom</label>
             <input type="text" class="form-control" name="prenom">
             </div>
+
         </div>
         
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            
+            <!-- CHARGEMENT DU MESSAGE D'ERREUR-->
+            <% if(message.length > 0) {%>
+            <div class="alert alert-warning mb-2" role="alert"><%= message %></div>
+            <%}%>
         </div>
+        
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="motdepasse">
