@@ -4,6 +4,7 @@ const app = express();
 const mysql = require('mysql');
 const util = require('util')
 const methodOverride = require('method-override');
+const session = require('express-session');
 const port = 7000;
 
 // DotEnv
@@ -11,6 +12,8 @@ require('dotenv').config()
 
 // override
 app.use(methodOverride('_method'))
+
+
 
 //MYSQL
 
@@ -34,6 +37,15 @@ db.connect(
         console.log('Connecté au serveur MySQL');
     }
 )
+
+//express-session
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 
 //DECLARE LA VARIABLE LOCAL QUERYSQL
 global.querysql = util.promisify(db.query).bind(db)

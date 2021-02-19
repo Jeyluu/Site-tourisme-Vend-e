@@ -97,4 +97,22 @@ INNER JOIN article ON auteur.auteurId = article.auteurId;
 -- COMPTE LE NOMBRE D'ARTICLES AU TOTAL
 SELECT COUNT(*) AS total FROM article;
 -- PERMET DE SORTIR LES ARTICLES EN RAPPORT AVEC LE MOT
-SELECT titre FROM article WHERE titre LIKE '%Golf%';
+SELECT titre FROM article WHERE titre LIKE '%restaurant%';
+
+-- CREATION DE LA TABLE USER
+CREATE TABLE utilisateur
+(
+utilisateurId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nom VARCHAR(25) NOT NULL,
+prenom VARCHAR(25) NOT NULL,
+email VARCHAR(50) NOT NULL,
+motdepasse VARCHAR(255) NOT NULL
+)
+
+-- Commande afin de verifier si un attribut est déjà dans la base de donnée.
+
+SELECT COUNT(*) AS cnt FROM utilisateur WHERE email= "son.goku@gmail.com";
+
+INSERT INTO utilisateur (nom, prenom, email, motdepasse) VALUES('Richard','Lamella','r.lamella@gmail.com', '123');
+
+SELECT * FROM utilisateur;
