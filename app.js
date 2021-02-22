@@ -6,6 +6,7 @@ const util = require('util')
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash')
+const MySQLsession = require('express-mysql-session')
 const port = 7000;
 
 // DotEnv
@@ -38,7 +39,8 @@ db.connect(
         console.log('Connecté au serveur MySQL');
     }
 )
-
+//mysql EXPRESS SESSION
+var sessionStore = new MySQLsession({}, db)
 //express-session
 
 app.use(session({
@@ -46,10 +48,13 @@ app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: true,
+    store: sessionStore,
     cookie: {
         maxage: 1000 * 60 * 60 * 24 // le cookie du 24heures
     }
 }))
+
+
 
 //ACTIVER LES MESSAGES FLASH
 app.use(flash())
@@ -71,15 +76,19 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 /*---------------------------------------------------------------*/
+//CHARGEMENT DU MIDDLEWARE DE CONNEXION
+const verifyConnexion = require('./middleware/verifyConnexion')
+
 // ROUTE
 const homePage = require('./routes/homePageRoute')
 const connexionPage = require('./routes/connexionPageRoute')
 
 //ROUTE ADMIN
-const dashboardPage = require('./routes/dashboardPageRoute')
+const dashboardPage = require('./routes/dashboardPageRoute');
+const MySQLStore = require('express-mysql-session');
 
 //CONTROLLER ADMIN
-app.use('/tableau-de-bord', dashboardPage)
+app.use('/tableau-de-bord',verifyConnexion.getVerifyConnexion, dashboardPage)
 
 //CONTROLLER
 app.use('/', connexionPage)

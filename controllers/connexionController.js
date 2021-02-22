@@ -84,3 +84,12 @@ exports.postConnexion = async (req, res) => {
 
 }
 
+
+//DECONNEXION
+
+exports.getDeconnexion = (req, res) => {
+    req.session.destroy(function(err){
+        res.redirect('/')
+    })
+}
+

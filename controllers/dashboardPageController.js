@@ -1,4 +1,5 @@
 
 exports.getDashboardPage = (req, res) => {
-    res.render('admin/dashboardPage')
+    const utilisateur = req.session.utilisateur
+    res.render('admin/dashboardPage', {utilisateur})
 }

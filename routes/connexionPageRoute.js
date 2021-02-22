@@ -15,7 +15,9 @@ router.get('/inscription', connexionController.getInscriptionPage)
 //POST
 router.post('/inscription', connexionController.postInscription)
 
+//------------------- Deconnexion ---------------------
 
+router.get('/deconnexion', connexionController.getDeconnexion)
 
 
 
