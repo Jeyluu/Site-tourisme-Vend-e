@@ -5,23 +5,32 @@
             <div class="alert alert-success mb-2" role="alert">
                 <%= message %>
             </div>
-            <%}%>
+        <%}%>
 
-                <form action="" method="POST">
+                <form action="/connexion" method="POST">
 
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">Adresse Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             name="email">
-
-
-
+                            <% if(messemail.length> 0) {%>
+                                <div class="alert alert-danger mb-2" role="danger">
+                                    <%= messemail %>
+                                </div>
+                            <%}%>
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="motdepasse">
+                        <% if(messmdp.length> 0) {%>
+                        <div class="alert alert-danger mb-2" role="danger">
+                            <%= messmdp %>
+                        </div>
+                        <%}%>
                     </div>
+                    
 
                     <button type="submit" class="btn btn-primary">Connexion</button>
                 </form>
